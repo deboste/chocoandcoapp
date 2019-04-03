@@ -26,10 +26,19 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('chocoandco');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render Chocolatine in a button tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to chocoandco!');
+    expect(compiled.querySelector('button').textContent).toContain('Dis Chocolatine !');
+  });
+
+  it('should render Chocolatine in a h2 tag after button is clicked', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('Chocolatine');
   });
 });
