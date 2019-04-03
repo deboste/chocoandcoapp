@@ -17,7 +17,7 @@ export class AppComponent {
   getWord() {
 
     // Call the http GET
-    this.http.get<Words>('http://api.chocoandco.tk', {responseType: 'json'}).subscribe(data => {
+    this.http.get<Words>('https://chocoandcoapp.herokuapp.com', {responseType: 'json'}).subscribe(data => {
       console.log(data);
       this.clickMessage = data.message;
     });
