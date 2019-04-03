@@ -17,9 +17,13 @@ export class AppComponent {
   getWord() {
 
     // Call the http GET
-    this.http.get('http://localhost:3000', {responseType: 'json'}).subscribe(data => {
+    this.http.get<Words>('http://api.chocoandco.tk', {responseType: 'json'}).subscribe(data => {
       console.log(data);
       this.clickMessage = data.message;
     });
   }
+}
+
+export class Words {
+  message: string;
 }
