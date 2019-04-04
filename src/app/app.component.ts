@@ -11,13 +11,14 @@ export class AppComponent {
 
   title = 'chocoandco';
   word = 'Chocolatine';
+  apiUrl = process.env.api_url || 'http://localhost:3000';
   clickMessage = '';
 
 
   getWord() {
 
     // Call the http GET
-    this.http.get<Words>('https://chocoapi.herokuapp.com', {responseType: 'json'}).subscribe(data => {
+    this.http.get<Words>(this.apiUrl, {responseType: 'json'}).subscribe(data => {
       console.log(data);
       this.clickMessage = data.message;
     });
